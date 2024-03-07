@@ -1,3 +1,10 @@
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Ensure the image doesn't have any default padding or margin */
+    margin: 0 auto; /* Center the image horizontally */
+}
+
 .ticker-container {
     position: relative;
     width: 100%;
