@@ -47,6 +47,7 @@
     0% {
         transform: translate(0, 0) rotate(0deg);
     }
+
     100% {
         transform: translate(-100%, 0) rotate(360deg);
     }
@@ -173,11 +174,10 @@ body {
     10% { transform: translateX(1000px) translateY(-30%); }
 
 
-    50% { transform: translateX(-80px) translateY(32%); }
+    50% { transform: translateX(-80px) translateY(2332%); }
 80% { transform: translateX(calc(-85% + 150px)) translateY(50%); }
    
 }
-
 
 
 
