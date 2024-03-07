@@ -1,6 +1,60 @@
+.ticker-container {
+    position: relative;
+    width: 100%;
+    height: 50px; /* Adjust height as needed */
+    background-color: #fff;
+
+}
+
+.ticker-tape {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    animation: spiral 15s linear infinite;
+}
+
+.ticker-item1 {
+    display: inline-block;
+    padding: 0 20px;
+    color: #333;
+}
+
+
+.ticker-container1 {
+    position: relative;
+    width: 100%;
+    height: 50px; /* Adjust height as needed */
+    background-color: #fff;
+
+}
+
+.ticker-tape1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    animation: spiral 30s linear infinite;
+}
+
+.ticker-item {
+    display: inline-block;
+    padding: 0 20px;
+    color: #333;
+}
+
+@keyframes spiral {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    100% {
+        transform: translate(-100%, 0) rotate(360deg);
+    }
+}
+
 .carousel {
     position: relative;
-    max-width: 400px;
+    max-width: 650px;
     margin: auto;
     overflow: hidden;
 }
@@ -10,7 +64,7 @@
 }
 
 .carousel-images img {
-    max-height: 250px;
+    max-height: 650px;
     width: auto;
     margin-right: 10px;
 }
@@ -41,7 +95,7 @@ button {
 
 .carousel2 {
     position: relative;
-    max-width: 400px;
+    max-width: 650px;
     margin: auto;
     overflow: hidden;
 }
@@ -51,7 +105,7 @@ button {
 }
 
 .carousel-images2 img {
-    max-height: 250px;
+    max-height: 650px;
     width: auto;
     margin-right: 10px;
 }
@@ -75,6 +129,56 @@ button2 {
 .next2 {
     right: 0;
 }
+
+
+.columns {
+    column-count: 3;
+    column-gap: 20px; /* Adjust the gap between columns */
+    /* Optional: add additional styles for better readability */
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+/* Optional: style for better readability */
+.columns p {
+    margin-bottom: 20px;
+}
+
+body {
+    padding-top: 100px; /* Adjust the padding based on the navbar height */
+}
+
+
+
+.container {
+    width: 80%; /* Set the width of the container */
+    margin: 0 auto; /* Center the container horizontally */
+    text-align: center; /* Center the text inside the container */
+    cursor: pointer;
+ position: relative;
+}
+
+.slithering-text {
+    position: absolute;
+    top: 50%;
+    left: -200px; /* Start the text off-screen */
+    font-size: 24px;
+    white-space: nowrap;
+    animation: slither 10s linear infinite;
+}
+
+@keyframes slither {
+    0% { transform: translateX(-200px) translateY(-50%); }
+
+    10% { transform: translateX(1000px) translateY(-30%); }
+
+
+    50% { transform: translateX(-80px) translateY(32%); }
+80% { transform: translateX(calc(-85% + 150px)) translateY(50%); }
+   
+}
+
+
 
 
 
