@@ -6,22 +6,48 @@
     <title>without end</title>
     <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
- <style>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
         #whiteboardContainer {
             position: relative;
+            margin: 10px; /* Add margin for spacing around the whiteboard */
         }
 
         #whiteboard {
+            display: block;
+            margin: 0 auto; /* Center the canvas horizontally */
             border: 2px solid black;
+            touch-action: none; /* Prevent default touch actions on canvas */
+            max-width: 100%; /* Ensure the canvas doesn't exceed its container's width */
         }
 
         #toolsContainer {
-            position: absolute;
-            top: 10px;
-            left: 10px;
+            text-align: left; /* Center-align the buttons */
+            margin-top: 10px; /* Add margin above the buttons */
         }
- #toolsContainer button {
-            margin-right: 200px; /* Add margin-right for space between buttons */
+
+        #toolsContainer button {
+            margin: 0 5px; /* Add margin between buttons */
+        }
+
+        /* Style adjustments for mobile */
+        @media screen and (max-width: 600px) {
+            #whiteboardContainer {
+                margin: 5px; /* Reduce margin for smaller screens */
+            }
+
+            #toolsContainer {
+                margin-top: 5px; /* Reduce margin above the buttons */
+            }
+
+            #toolsContainer button {
+                font-size: 14px; /* Reduce font size for smaller screens */
+            }
         }
     </style>
 </head>
@@ -361,15 +387,15 @@ good is he who gives and recieves naught.
 
 
 <h3>Create Yourself</h3>
- <div id="whiteboardContainer">
-        <canvas id="whiteboard" width="800" height="500"></canvas>
+    <div id="whiteboardContainer">
+        <canvas id="whiteboard" width="400" height="300"></canvas>
         <div id="toolsContainer">
             <button id="clearButton">Clear</button>
-        
+           
         </div>
     </div>
 
-       <script>
+    <script>
         // Get the canvas element and its context
         const canvas = document.getElementById('whiteboard');
         const context = canvas.getContext('2d');
@@ -440,7 +466,6 @@ good is he who gives and recieves naught.
             }
         });
     </script>
-
   
 
 </section>
