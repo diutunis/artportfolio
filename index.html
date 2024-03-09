@@ -369,12 +369,12 @@ good is he who gives and recieves naught.
         </div>
     </div>
 
-    <script>
+       <script>
         // Get the canvas element and its context
         const canvas = document.getElementById('whiteboard');
         const context = canvas.getContext('2d');
 
-        // Variables to keep track of mouse movements and eraser mode
+        // Variables to keep track of touch movements and eraser mode
         let isDrawing = false;
         let lastX = 0;
         let lastY = 0;
@@ -397,27 +397,31 @@ good is he who gives and recieves naught.
         }
 
         // Event listeners to handle drawing
-        canvas.addEventListener('mousedown', (e) => {
+        function startDrawing(e) {
             isDrawing = true;
-            [lastX, lastY] = [e.offsetX, e.offsetY];
-        });
+            [lastX, lastY] = [e.offsetX || e.touches[0].clientX, e.offsetY || e.touches[0].clientY];
+        }
 
-        canvas.addEventListener('mousemove', (e) => {
-            if (isDrawing) {
-                const [x, y] = [e.offsetX, e.offsetY];
-                drawLine(lastX, lastY, x, y);
-                lastX = x;
-                lastY = y;
-            }
-        });
+        function draw(e) {
+            if (!isDrawing) return;
+            const x = e.offsetX || e.touches[0].clientX;
+            const y = e.offsetY || e.touches[0].clientY;
+            drawLine(lastX, lastY, x, y);
+            lastX = x;
+            lastY = y;
+        }
 
-        canvas.addEventListener('mouseup', () => {
+        function endDrawing() {
             isDrawing = false;
-        });
+        }
 
-        canvas.addEventListener('mouseout', () => {
-            isDrawing = false;
-        });
+        canvas.addEventListener('mousedown', startDrawing);
+        canvas.addEventListener('touchstart', startDrawing);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('touchmove', draw);
+        canvas.addEventListener('mouseup', endDrawing);
+        canvas.addEventListener('touchend', endDrawing);
+        canvas.addEventListener('mouseout', endDrawing);
 
         // Clear button functionality
         const clearButton = document.getElementById('clearButton');
